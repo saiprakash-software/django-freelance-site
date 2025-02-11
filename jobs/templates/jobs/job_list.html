@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Jobs</title>
+    <style>
+        body {
+            
+            
+            background-image:"c:\Users\DELL E5540\Pictures\WhatsApp Image 2025-01-25 at 17.38.14_2686073f.jpg";
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 4px solid #3498db;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        li {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+            background: #d5dbdb;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        a:hover {
+            color: #1a5276;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .no-jobs {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Jobs</h1>
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <a href="{% url 'job_detail' job.id %}">{{ job.title }}</a>
+                    <p>{{ job.location }} - ₹{{ job.salary }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-jobs">No jobs available.</p>
+    {% endif %}
+</body>
+</html>

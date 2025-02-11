@@ -1,0 +1,85 @@
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f6f7;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-bottom: 4px solid #3498db;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    .form-container {
+        max-width: 600px;
+        background: white;
+        padding: 25px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+        text-align: left;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #34495e;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    input:focus, textarea:focus, select:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+    button {
+        background-color: #3498db;
+        color: white;
+        font-size: 1.2rem;
+        padding: 12px 20px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<h1>Apply for {{ job.title }}</h1>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Application</button>
+    </form>
+</div>

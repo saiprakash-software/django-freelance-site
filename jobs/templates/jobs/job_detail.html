@@ -1,0 +1,63 @@
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f6f7;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-bottom: 4px solid #3498db;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #555;
+        margin: 10px 0;
+    }
+
+    .job-container {
+        max-width: 600px;
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        font-size: 1.2rem;
+        padding: 12px 25px;
+        margin-top: 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .apply-btn:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<div class="job-container">
+    <h1>{{ job.title }}</h1>
+    <p>{{ job.description }}</p>
+    <p><strong>Company:</strong> {{ job.company }}</p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
+
+    <!-- Link to apply page -->
+    <a href="{% url 'apply_job' job.id %}" class="apply-btn">Apply Now</a>
+</div>
